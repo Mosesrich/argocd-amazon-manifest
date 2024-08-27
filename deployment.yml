@@ -23,7 +23,7 @@ spec:
     spec: # Pod spec
       containers:
       - name: amazon-container
-        image: mosesrich/amazon:1
+        image: mosesrich/amazon:latest
         ports:
         - containerPort: 3000
         
