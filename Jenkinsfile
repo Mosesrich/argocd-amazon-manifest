@@ -1,7 +1,7 @@
 node {
     def app
     
-    env.IMAGE = 'mosesrich/amazon'
+    env.IMAGE = 'mosesrich/amazon-app'
 
     stage('Clone repository') {
              git branch: 'main', url: 'https://github.com/mosesrich/argocd-amazon-manifest.git'  
@@ -12,7 +12,7 @@ node {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     withCredentials([usernamePassword(credentialsId: 'okojie-github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                         //script {def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')}
-                        //script  {def IMAGE='mosesrich/amazon'}
+                        //script  {def IMAGE='mosesrich/amazon-app'}
                         sh "git config user.email mosesrichokojie@gmail.com"
                         sh "git config user.name mosesrich"
                         //sh "git switch master"
